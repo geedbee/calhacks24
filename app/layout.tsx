@@ -1,5 +1,6 @@
 // app/layout.tsx
-import Link from "next/link";
+import { ConversationProvider } from "./ConversationContext";
+import Navbar from "./page2/components/Navbar";
 
 export default function RootLayout({
   children,
@@ -9,28 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>
-          <nav>
-            <ul>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/page1">Page 1</Link>
-              </li>
-              <li>
-                <Link href="/page2">Page 2</Link>
-              </li>
-              <li>
-                <Link href="/page3">Page 3</Link>
-              </li>
-              <li>
-                <Link href="/page4">Page 4</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <main>{children}</main>
+        <ConversationProvider>
+          <Navbar /> {/* Navbar stays visible on all pages */}
+          <main>{children}</main>
+        </ConversationProvider>
       </body>
     </html>
   );

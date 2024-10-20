@@ -11,14 +11,19 @@ import {
   Box,
   Container
 } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
 const Selection = () => {
+  const router = useRouter();
   const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   const handleSelect = (id) => {
     setSelectedCharacter(id === selectedCharacter ? null : id);
   };
 
+  const startSession = () => {
+    router.push('/page1');
+  }
   const createCard = (id, name, description, rotation, imagePath) => (
     <Grid2 item>
       <Card 
@@ -78,6 +83,7 @@ const Selection = () => {
           {createCard(3, 'Your Therapist', '"What keeps you up at night?"', 3, '/assets/pikachu.png')}
         </Grid2>
       </Container>
+        <Button onClick = {startSession}>Start</Button>
     </Box>
   );
 };

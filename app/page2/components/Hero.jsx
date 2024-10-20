@@ -13,14 +13,6 @@ import {
 const Hero = () => {
 return (
     <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" color="transparent" elevation={0}>
-            <Toolbar>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    GAY study buddy
-                </Typography>
-                <Button color="inherit">login</Button>
-            </Toolbar>
-        </AppBar>
 
         <Container maxWidth="lg" sx={{ mt: 8 }}>
             <Grid2 container spacing={16} alignItems="center">

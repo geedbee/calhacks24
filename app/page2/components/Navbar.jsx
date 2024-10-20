@@ -1,24 +1,29 @@
 import React from "react";
+import {
+   AppBar,
+   Toolbar,
+   Typography,
+   Button,
+   Container,
+   Avatar
+} from "@mui/material";
+
 
 const Navbar = () => {
-    return (
-        <Section>
-            <Container>
-                <Links>
-                    {/* <Logo src=""/> */}
-                    <List>
-                        <ListItem>ABOUT</ListItem>
-                        <ListItem>PROJECT</ListItem>
-                        <ListItem>CONTACT</ListItem>
-                    </List>
-                </Links>
-                {/* <Icons>
-                    <Icon src="https://cdn-icons-png.flaticon.com/512/733/733547.png"/>
-                    <Button>Click Me</Button>
-                </Icons> */}
-            </Container>
-        </Section>
-    );
-};
+   return (
+       <AppBar position="fixed" color="transparent" elevation={0} sx={{ width: "100vw", bgcolor: "#D8A7D8", top: 0, left: 0 }}>
+           <Toolbar>
+               <Container sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                   <Avatar src = "/assets/logo.png">
+                   </Avatar>
+                   <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                       Study Pal
+                   </Typography>
+               </Container>
+           </Toolbar>
+       </AppBar>
+   );
+   }
+
 
 export default Navbar;

@@ -35,9 +35,6 @@ return (
         </Container>
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 16 }}>
             <Link href='/page2/otherPage' passHref>
-                <Button variant="contained" color="primary">
-                    Start Session
-                </Button>
             </Link>
         </Box>
     </Box>

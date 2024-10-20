@@ -1,10 +1,10 @@
 // ./components/ClientComponent.tsx
 "use client";
 import { VoiceProvider } from "@humeai/voice-react";
-import Messages from "./Messages";
+import Messages from "./Message";
 import Controls from "./Controls";
 
-export default function ClientComponent({
+export default function VoiceComponent({
   accessToken,
 }: {
   accessToken: string;
@@ -12,7 +12,7 @@ export default function ClientComponent({
   return (
     <VoiceProvider auth={{ type: "accessToken", value: accessToken }}>
       <Messages />
-      <Controls />
+      {/* <Controls /> */}
     </VoiceProvider>
   );
 }
