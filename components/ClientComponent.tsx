@@ -3,16 +3,29 @@
 import { VoiceProvider } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
+import ClientInterface from "@/components/ClientInterface";
+import {useState} from "react";
+import StartPage from "@/components/StartPage";
 
 export default function ClientComponent({
                                             accessToken,
                                         }: {
     accessToken: string;
 }) {
+    interface Message {
+        name: string,
+    }
+
+    const [hasStarted, setHasStarted] = useState(false);
+
     return (
         <VoiceProvider auth={{ type: "accessToken", value: accessToken }}>
-            <Messages />
-            <Controls />
+            {!hasStarted && <StartPage hasStarted={hasStarted} setHasStarted={setHasStarted}/>}
+
+            {hasStarted && <>
+                <Messages />
+                <Controls />
+            </>}
         </VoiceProvider>
     );
 }

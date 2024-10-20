@@ -1,6 +1,8 @@
 // ./app/page.tsx
 import ClientComponent from "@/components/ClientComponent";
+import "../globals.css";
 import { fetchAccessToken } from "hume";
+import ClientInterface from "@/components/ClientInterface";
 
 export default async function Page() {
   const accessToken = await fetchAccessToken({
@@ -12,5 +14,7 @@ export default async function Page() {
     throw new Error();
   }
 
-  return <ClientComponent accessToken={accessToken} />;
+  return <>
+    <ClientComponent accessToken={accessToken} />
+  </>
 }
