@@ -1,0 +1,5 @@
+.hoverable:hover{ 
+    background-color: rgb(58, 58, 158);
+    transform: rotate(30deg);
+    transform: scale(1.05);
+}
