@@ -35,25 +35,28 @@ export default function Page5() {
         };
     }, [handleMouseMove, handleMouseUp]);
 
+    const marginTopLeft = '30px'
+    const marginTopRight = '90px'
     return (
-        <Container maxWidth={false} disableGutters sx={{ height: '100vh', display: 'flex', overflow: 'hidden' }}>
-            <Box sx={{ width: `${leftWidth}%`, p: 2, overflow: 'auto', marginTop:"100px" }}>
+        <Container maxWidth={false} disableGutters sx={{height: '100vh', display: 'flex', overflow: 'hidden' }}>
+            <Box sx={{marginTop: {marginTopLeft}, width: `${leftWidth}%`, p: 2, overflow: 'auto', marginTop:"100px" }}>
                 <VoicePage/>
                 {/* <AvatarPage /> */}
             </Box>
             <Box
                 sx={{
                     width: '10px',
-                    backgroundColor: 'gray',
+                    backgroundColor: 'white',
                     cursor: 'col-resize',
-                    transition: 'background-color 0.3s',
+                    boxShadow: '-8px 0px 10px 1px lightgrey',
+                    transition: 'border 0.1s',
                     '&:hover': {
-                        backgroundColor: 'darkgray',
+                        border: '1px solid lightgrey'
                     },
                 }}
                 onMouseDown={handleMouseDown}
             />
-            <Box sx={{ width: `${100 - leftWidth}%`, p: 2, overflow: 'auto' }}>
+            <Box sx={{marginTop: marginTopRight, width: `${100 - leftWidth}%`, p: 2, overflow: 'auto' }}>
                 <Model/>
             </Box>
         </Container>

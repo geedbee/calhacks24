@@ -22,7 +22,7 @@ return (
                 </Typography>
             </Box>
             <Box sx={{ textAlign: 'center', width: '50%', height: '50%', }}>
-                <Typography variant="h2" component="h1">
+                <Typography variant="h2" component="h1" style={{marginBottom: '20px'}}>
                     TEACH.
                 </Typography>
                 <Typography variant="body1" component="p">

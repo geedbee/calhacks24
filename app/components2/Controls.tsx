@@ -10,6 +10,12 @@ export default function Controls() {
     if (readyState === VoiceReadyState.OPEN) {
         return (
             <Button
+                variant='contained'
+                size='small'
+                style={{
+                    width: '80%',
+                    alignSelf: 'center',
+                }} 
                 onClick={() => {
                     disconnect();
                 }}
@@ -20,7 +26,10 @@ export default function Controls() {
     }
 
     return (
+
         <Button
+            variant='contained'
+            size='small'
             onClick={() => {
                 connect()
                     .then(() => {
@@ -30,8 +39,13 @@ export default function Controls() {
                         /* handle error */
                     });
             }}
+            style={{
+                width: '80%',
+                alignSelf: 'center',
+            }}  
         >
-            Start Session
+            <h1 style={{borderRadius: '15px', letterSpacing: '1.5px', fontWeight: '500'}}>Start Session</h1>
         </Button>
+       
     );
 }

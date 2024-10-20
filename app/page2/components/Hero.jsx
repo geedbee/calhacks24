@@ -12,10 +12,10 @@ const Hero = () => {
       <Container maxWidth="lg" sx={{ mt: 8 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Box sx={{ textAlign: 'left' }}>
-            <Typography variant="h1" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
-              Meet your new buddy...
+            <Typography variant="h1" component="h1" gutterBottom sx={{  }}>
+              Meet your new buddy.
             </Typography>
-            <Typography variant="h6" component="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h6" component="h2" gutterBottom sx={{ }}>
               Teach, Learn, and Talk 
             </Typography>
           </Box>

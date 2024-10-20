@@ -11,10 +11,10 @@ return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center' }}>
         <Container maxWidth="lg" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12}}>
             <Box sx={{ textAlign: 'center', width: '50%', height: 'auto' }}>
-                <Typography variant="h2" component="h1">
+                <Typography variant="h2" component="h1" style={{marginBottom: '20px'}}>
                     LEARN.
                 </Typography>
-                <Typography variant="body1" component="p">
+                <Typography variant="body1" component="p" >
                     Explore three unique personas tailored to your learning style. Each persona provides personalized insights and support to enhance your environment!
                 </Typography>
             </Box>

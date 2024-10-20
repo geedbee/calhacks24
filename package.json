@@ -22,6 +22,7 @@
     "hume": "^0.9.1",
     "next": "14.2.15",
     "react": "^18",
+    "react-awesome-reveal": "^4.2.14",
     "react-dom": "^18",
     "remeda": "^2.15.2"
   },

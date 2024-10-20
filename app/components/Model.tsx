@@ -52,16 +52,16 @@ export default function Model() {
 
   return (
     <div>
-      <h1>Chat with AI</h1>
+      <h1>Chat</h1>
       <input
         type="text"
         placeholder="Enter your question or message"
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
-        style={{ marginBottom: "10px", padding: "8px", width: "100%" }}
+        style={{border: '1px solid black', marginTop: '10px', marginBottom: "10px", padding: "8px", width: "100%" }}
       />
       <button onClick={generateAI} disabled={loading || !userInput}>
-        {loading ? "Generating..." : "Generate"}
+        {loading ? "Generating..." : ""}
       </button>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {response && (
@@ -70,8 +70,8 @@ export default function Model() {
           <p>{response}</p>
         </div>
       )}
-      <div style={{ marginTop: "20px" }}>
-        <h2>Conversation History:</h2>
+      <div style={{ marginTop: "20px", marginBottom: '10px'}}>
+        <h2 style={{marginBottom: '20px'}}>Conversation History:</h2>
         <ul>
           {conversationHistory
             .filter((msg) => msg.role !== "system") // Exclude system messages

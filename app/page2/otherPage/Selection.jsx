@@ -83,8 +83,15 @@ const Selection = () => {
           {createCard(3, 'Your Therapist', '"What keeps you up at night?"', 3, '/assets/pikachu.png')}
         </Grid2>
       </Container>
-      <Button variant='contained' size='small' onClick={startSession} sx={{ mt: 15,}}>
-        Start!
+      <Button variant='contained' size='small' onClick={startSession} sx={
+        { 
+          mt: 15,
+          width: '80%',
+          height: '50px',
+          alignSelf: 'center',
+          borderRadius: '10px'
+        }}>
+        <h1>Start!</h1>
       </Button>
     </Box>
   );
