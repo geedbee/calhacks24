@@ -22,7 +22,7 @@ const Selection = () => {
   };
 
   const startSession = () => {
-    router.push('/page1');
+    router.push('/page5');
   }
   const createCard = (id, name, description, rotation, imagePath) => (
     <Grid2 item>
@@ -83,7 +83,9 @@ const Selection = () => {
           {createCard(3, 'Your Therapist', '"What keeps you up at night?"', 3, '/assets/pikachu.png')}
         </Grid2>
       </Container>
-        <Button onClick = {startSession}>Start</Button>
+      <Button variant='contained' size='small' onClick={startSession} sx={{ mt: 15,}}>
+        Start!
+      </Button>
     </Box>
   );
 };
