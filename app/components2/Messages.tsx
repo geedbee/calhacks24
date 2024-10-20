@@ -18,7 +18,6 @@ export default function Messages() {
     if (prevCount >= messages.length) return; // No new messages
 
     // Process only new messages from prevCount to the current length
-    console.log(messages[prevCount]);
     for (let i = prevCount; i < messages.length; i++) {
       const message = messages[i]?.message;
 

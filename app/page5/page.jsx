@@ -1,10 +1,10 @@
-'use client';
+"use client";
 import { Container, Box } from '@mui/material';
 import { useState, useCallback, useEffect } from 'react';
-import AvatarPage from './components/AvatarPage';
-import Chat from './components/Chat';
+import VoicePage from '../page1/VoicePage';
+import Model from '../components/Model';
 
-function Page5() {
+export default function Page5() {
     const [leftWidth, setLeftWidth] = useState(50);
     const [isDragging, setIsDragging] = useState(false);
 
@@ -37,8 +37,9 @@ function Page5() {
 
     return (
         <Container maxWidth={false} disableGutters sx={{ height: '100vh', display: 'flex', overflow: 'hidden' }}>
-            <Box sx={{ width: `${leftWidth}%`, p: 2, overflow: 'auto' }}>
-                <AvatarPage />
+            <Box sx={{ width: `${leftWidth}%`, p: 2, overflow: 'auto', marginTop:"100px" }}>
+                <VoicePage/>
+                {/* <AvatarPage /> */}
             </Box>
             <Box
                 sx={{
@@ -53,10 +54,9 @@ function Page5() {
                 onMouseDown={handleMouseDown}
             />
             <Box sx={{ width: `${100 - leftWidth}%`, p: 2, overflow: 'auto' }}>
-                <Chat />
+                <Model/>
             </Box>
         </Container>
     );
 }
 
-export default Page5;
