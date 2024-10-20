@@ -4,7 +4,7 @@ import VoicePage from "./VoicePage";
 export default function Page1() {
   //<Model />
   return (
-    <div style={{ display: "flex", flexDirection: "row", marginTop: "200px" }}>
+    <div style={{ display: "flex", flexDirection: "row", marginTop: "200px", justifyContent:"center"}}>
       <VoicePage />
       <Model />
     </div>

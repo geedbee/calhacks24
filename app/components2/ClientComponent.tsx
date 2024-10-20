@@ -1,10 +1,12 @@
 // ./components/ClientComponent.tsx
+
 "use client";
 import { VoiceProvider } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
 import { useState } from "react";
 import StartPage from "./StartPage";
+import "../globals.css";
 import { useConversation } from "../ConversationContext";
 
 export default function ClientComponent({
@@ -48,10 +50,10 @@ export default function ClientComponent({
       )}
 
       {hasStarted && (
-        <>
+        <div className="flex flex-col justify-center align-items w-full">
           <Messages />
           <Controls />
-        </>
+        </div>
       )}
     </VoiceProvider>
   );

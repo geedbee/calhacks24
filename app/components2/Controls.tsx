@@ -1,23 +1,26 @@
 // ./components/Controls.tsx
 "use client";
+import {
+    Button,
+} from '@mui/material'
 import { useVoice, VoiceReadyState } from "@humeai/voice-react";
 export default function Controls() {
     const { connect, disconnect, readyState } = useVoice();
 
     if (readyState === VoiceReadyState.OPEN) {
         return (
-            <button
+            <Button
                 onClick={() => {
                     disconnect();
                 }}
             >
                 End Session
-            </button>
+            </Button>
         );
     }
 
     return (
-        <button
+        <Button
             onClick={() => {
                 connect()
                     .then(() => {
@@ -29,6 +32,6 @@ export default function Controls() {
             }}
         >
             Start Session
-        </button>
+        </Button>
     );
 }

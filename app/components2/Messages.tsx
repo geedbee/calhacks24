@@ -6,6 +6,7 @@ import User from "./User";
 import Assistant from "./Assistant";
 import { useConversation } from "../ConversationContext";
 
+
 export default function Messages() {
   const { conversationHistory, addMessage } = useConversation();
   const { messages } = useVoice(); // Access voice messages
@@ -42,9 +43,9 @@ export default function Messages() {
   }, [messages, prevCount, addMessage]); // Dependencies for useEffect
 
   return (
-    <div>
-      <div className="flex flex-col w-max">
-        <div>
+    <div className="flex justify-center align-items">
+      <div className="flex flex-col w-max justify-center align-items">
+        <div className="flex justify-center align-items">
           <Assistant latestMessageAssistant={latestAssistant.current} />
         </div>
         <div>
