@@ -54,7 +54,7 @@ const AvatarPage = () => {
             sx={{ 
               position: 'absolute', 
               top: '10%', 
-              right: '-60%', 
+              right: '-72%', 
               borderRadius: '50%',
               p: 6, 
               maxWidth: '80%',
@@ -75,7 +75,7 @@ const AvatarPage = () => {
         </Box>
       </Box>
       
-      <Card sx={{ mt: 'auto', boxShadow: 3, position: 'relative' }}>
+      <Card sx={{ mt: 'auto', boxShadow: 5, position: 'relative', mb: 6 }}>
         <CardContent>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="h5" gutterBottom sx={{ fontFamily: 'Arial, sans-serif', color: '#4a148c' }}>

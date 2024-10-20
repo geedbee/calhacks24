@@ -1,47 +1,38 @@
 import React from 'react';
 import { 
-  AppBar, 
-  Toolbar, 
   Typography, 
   Container, 
   Box, 
-  Button, 
   Avatar, 
-  Grid2
 } from '@mui/material';
 
 const Hero = () => {
-return (
-    <Box sx={{ flexGrow: 1 }}>
-
-        <Container maxWidth="lg" sx={{ mt: 8 }}>
-            <Grid2 container spacing={16} alignItems="center">
-                <Grid2 item md={6}>
-                    <Box sx={{ textAlign: 'left' }}>
-                        <Typography variant="h2" component="h1" gutterBottom>
-                            Your study friend to...
-                        </Typography>
-                        <Typography variant="h6" component="h2" gutterBottom>
-                            Teach, talk, and learn
-                        </Typography>
-                    </Box>
-                </Grid2>
-                <Grid2 item md={6}>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Avatar
-                            alt="Study Buddy"
-                            src="assets/lebron.png"
-                            sx={{ width: 400, height: 400 }}
-                        />
-                    </Box>
-                    <Typography variant="body1" sx={{ mt: 2, fontStyle: 'italic', textAlign: 'center' }}>
-                        "yo u should take a break. im proud of u"
-                    </Typography>
-                </Grid2>
-            </Grid2>
-        </Container>
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'center' }}>
+      <Container maxWidth="lg" sx={{ mt: 8 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box sx={{ textAlign: 'left' }}>
+            <Typography variant="h1" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
+              Meet your new buddy...
+            </Typography>
+            <Typography variant="h6" component="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
+              Teach, Learn, and Talk 
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Avatar
+              alt="Study Buddy"
+              src="assets/lebron.png"
+              sx={{ width: 400, height: 400 }}
+            />
+            <Typography variant="body1" sx={{ mt: 2, fontStyle: 'italic', textAlign: 'center' }}>
+              "The Study Buddy AI is your emotionally intelligent companion, interacting naturally to provide support, motivation, and clarity—just like a friend!"
+            </Typography>
+          </Box>
+        </Box>
+      </Container>
     </Box>
-);
+  );
 };
 
 export default Hero;

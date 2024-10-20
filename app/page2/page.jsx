@@ -18,7 +18,6 @@ function Page2() {
       <Talk />
     </Container>
       <Selection/>
- 
     </Box>
   )
 }

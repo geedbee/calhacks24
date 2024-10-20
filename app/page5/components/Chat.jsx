@@ -20,21 +20,22 @@ const Chat = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: 'white' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
       {/* Chat History */}
       <Paper 
         sx={{ 
-          p: 2, 
-          mb: 2, 
-          height: '80vh',
+          p: 4, 
+          mb: 3, 
+          width: '80%', // Adjust width as needed
+          height: '60vh',
           borderRadius: '24px', 
           backgroundColor: '#f3e5f5', 
-          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.4)',
           overflowY: 'auto',
         }}
       >
         {messages.map((message, index) => (
-          <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
+          <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start'}}>
             <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mr: 1, fontFamily: 'Arial, sans-serif', color: '#4a148c' }}>
               LeBron
             </Typography>
@@ -46,7 +47,7 @@ const Chat = () => {
       </Paper>
 
       {/* Input Area */}
-      <Box sx={{ display: 'flex', alignItems: 'center', mt: 'auto' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', width: '93%' }}>
         <TextField
           fullWidth
           variant="outlined"
@@ -58,7 +59,7 @@ const Chat = () => {
               handleSendMessage();
             }
           }}
-          sx={{ mr: 1 }}
+          sx={{ mr: 1,}}
         />
         <IconButton onClick={handleSendMessage}>
           <SendIcon />
