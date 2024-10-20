@@ -16,12 +16,13 @@ return (
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '50%', height: '50%', }}>
                 <Avatar
                     alt="Study Buddy"
+                    src='assets/talk.png'
                     sx={{ width: '100%', height: 'auto', aspectRatio: '1/1', bgcolor: '#cccccc' }}
                 >
                     S
                 </Avatar>
                 <Typography variant="body2" sx={{ mt: 2, fontStyle: 'italic', textAlign: 'center' }}>
-                    "yo u should take a break. im proud of u"
+            
                 </Typography>
             </Box>
             <Box sx={{ textAlign: 'center', width: '50%', height: '50%',}}>
@@ -29,7 +30,7 @@ return (
                     TALK.
                 </Typography>
                 <Typography variant="body1" component="p">
-                Your study buddy hears you, offering breaks when you sound tired, encouragement when you're losing interest, and help when you're confused!.
+                Your study buddy hears you, offering breaks when you sound tired, encouragement when you're losing interest, and constructive advice when you're confused!.
                 </Typography>
             </Box>
         </Container>
