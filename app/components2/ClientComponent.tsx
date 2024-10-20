@@ -50,7 +50,7 @@ export default function ClientComponent({
       )}
 
       {hasStarted && (
-        <div className="flex flex-col justify-center align-items w-full">
+        <div className="flex flex-col justify-center align-items w-full gap-9">
           <Messages />
           <Controls />
         </div>
