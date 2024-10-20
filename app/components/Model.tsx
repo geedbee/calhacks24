@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { useConversation } from "../ConversationContext";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export default function Model() {
   const [userInput, setUserInput] = useState(""); // Tracks user input
@@ -11,31 +11,35 @@ export default function Model() {
 
   const { conversationHistory, addMessage } = useConversation(); // Access conversation context
 
-  // Generate response from AI model and update conversation history
-  const generateAI = async () => {
-    const model = new ChatGoogleGenerativeAI({
-      modelName: "gemini-1.5-pro",
-      temperature: 0,
-      maxOutputTokens: 256,
-      timeout: 60000,
-      maxRetries: 2,
-      apiKey: "AIzaSyBbAxuI2uQtbWVVb6pghLfxgH59PYEc_jA",
-    });
+  const genAI = new GoogleGenerativeAI(
+    "AIzaSyBCPAFrw9k6enoMOGrGPLjQfwlTDBMiHWI"
+  );
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  // Validate conversation history to ensure correct format
 
+  const generateAI = async () => {
     try {
       setLoading(true); // Start loading
 
-      // Add user input to conversation history in the context
-      addMessage("user", userInput || "[No message provided]");
+      addMessage("user", userInput);
+      // Prepare the prompt with conversation history and user input
+      let prompt = conversationHistory
+        .map((msg) => `${msg.role}: ${msg.content}`)
+        .join("\n"); // Format the history as a string
+      prompt += `\n main question: ${userInput}`; // Add the current user input
 
-      // Invoke the model with the updated conversation history from the context
-      const aiResponse = await model.invoke(conversationHistory);
+      // Invoke the model with the formatted prompt
+      const result = await model.generateContent(prompt);
 
-      // Add the assistant's response to conversation history in the context
-      addMessage("assistant", aiResponse.content || "[No response available]");
+      const aiResponse = result?.response?.text() || "[No response available]";
+      console.log(aiResponse); // Log the response
 
-      // Store response for displaying in the UI
-      setResponse(aiResponse.content || "[No response available]");
+      // Add the assistant's response to the conversation history
+      if (aiResponse) {
+        addMessage("assistant", aiResponse);
+        setResponse(aiResponse); // Update UI with response
+      }
+
       setError(""); // Clear any previous errors
     } catch (err) {
       console.error("Error generating AI response:", err);
@@ -44,8 +48,6 @@ export default function Model() {
       setLoading(false); // Stop loading
       setUserInput(""); // Clear input field
     }
-
-    console.log("Updated Conversation History:", conversationHistory); // Log updated history
   };
 
   return (
@@ -72,11 +74,10 @@ export default function Model() {
         <h2>Conversation History:</h2>
         <ul>
           {conversationHistory
-            .filter((msg) => msg.role === "system" || msg.role === "user") // Exclude system messages
+            .filter((msg) => msg.role !== "system") // Exclude system messages
             .map((msg, index) => (
               <li key={index}>
-                <strong>{msg.role}:</strong>{" "}
-                {msg.content || "[No message provided]"}
+                <strong>{msg.role}:</strong> {msg.content}
               </li>
             ))}
         </ul>

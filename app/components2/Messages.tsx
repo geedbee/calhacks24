@@ -1,56 +1,50 @@
-// ./components/Messages.tsx
 "use client";
 import { useVoice } from "@humeai/voice-react";
 import Sentiment from "./Sentiment";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import User from "./User";
 import Assistant from "./Assistant";
 import { useConversation } from "../ConversationContext";
 
-export default function Messages(props) {
+export default function Messages() {
   const { conversationHistory, addMessage } = useConversation();
-  const { messages } = useVoice();
-  // let latestAssistant = null;
-  // let latestUser = null;
-  let latestAssistant = useRef(null);
-  let latestUser = useRef(null);
+  const { messages } = useVoice(); // Access voice messages
+  const [prevCount, setPrevCount] = useState(2); // Initialize with current length
+
+  const latestAssistant = useRef(null); // Store the latest assistant message
+  const latestUser = useRef(null); // Store the latest user message
 
   useEffect(() => {
-    console.log(messages);
-    if (messages) {
-      if (
-        messages[messages.length - 1] &&
-        messages[messages.length - 1].type === "user_message"
-      ) {
-        latestUser.current = messages[messages.length - 1];
-      }
-      if (
-        messages[messages.length - 1] &&
-        messages[messages.length - 1].type === "assistant_message"
-      ) {
-        latestAssistant.current = messages[messages.length - 1];
+    if (prevCount >= messages.length) return; // No new messages
+
+    // Process only new messages from prevCount to the current length
+    console.log(messages[prevCount]);
+    for (let i = prevCount; i < messages.length; i++) {
+      const message = messages[i]?.message;
+
+      // Only handle messages with valid content and role
+      if (message?.content && message?.role) {
+        console.log(message.content);
+        console.log(message.role);
+
+        // Add message to conversation history based on role
+        if (message.role === "user") {
+          addMessage("user", message.content);
+          latestUser.current = message; // Store latest user message
+        } else if (message.role === "assistant") {
+          addMessage("assistant", message.content);
+          latestAssistant.current = message; // Store latest assistant message
+        }
       }
     }
-  }, [messages]);
+
+    // Update the previous message count to the current length
+    setPrevCount(messages.length);
+  }, [messages, prevCount, addMessage]); // Dependencies for useEffect
 
   return (
     <div>
-      {/*{messages.map((msg, index) => {*/}
-      {/*    if (msg.type === "user_message" || msg.type === "assistant_message") {*/}
-      {/*        return (*/}
-      {/*            <div key={msg.type + index}>*/}
-      {/*                <div>{msg.message.role}</div>*/}
-      {/*                <div>{msg.message.content}</div>*/}
-
-      {/*                <Sentiment values={{ ...msg.models.prosody?.scores }}/>*/}
-      {/*            </div>*/}
-      {/*        );*/}
-      {/*    }*/}
-
-      {/*    return null;*/}
-      {/*})}*/}
-
-      <div className="flex flex-col-2 w-max">
+      <div className="flex flex-col w-max">
         <div>
           <Assistant latestMessageAssistant={latestAssistant.current} />
         </div>
